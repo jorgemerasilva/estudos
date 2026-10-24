@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 
+	//Slices
 	s := []int{20, 35, 50, 65, 80, 95, 110, 125, 140, 155, 158, 160, 165, 170, 175, 180, 185, 190, 195, 200}
 
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
