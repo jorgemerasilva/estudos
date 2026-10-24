@@ -23,12 +23,20 @@ type ViaCEP struct {
 }
 
 func main() {
-	http.HandleFunc("/", BuscaCepHandler)
 	log.Println("Servidor rodando na porta 8080")
-	http.ListenAndServe(":8080", nil)
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", BuscaCepHandler)
+	http.ListenAndServe(":8080", mux)
 }
 
 func BuscaCepHandler(w http.ResponseWriter, r *http.Request) {
+
+	log.Println("Método:", r.Method)
+	log.Println("URL:", r.URL.Path)
+	log.Println("Host:", r.Host)
+	log.Println("IP:", r.RemoteAddr)
+	log.Println("User-Agent:", r.UserAgent())
+
 	if r.URL.Path != "/" {
 		w.WriteHeader(http.StatusNotFound)
 		return
@@ -62,6 +70,7 @@ func BuscaCepHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func BuscaCep(cep string) (*ViaCEP, error) {
+
 	resp, error := http.Get("http://viacep.com.br/ws/" + cep + "/json/")
 	if error != nil {
 		return nil, error
