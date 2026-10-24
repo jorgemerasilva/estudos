@@ -4,8 +4,8 @@ type ID string
 
 var (
 	a string
-	b bool
-	c ID = "sw4dwd4wf4f4e4f4ef4e4"
+	b bool = true
+	c ID   = "sw4dwd4wf4f4e4f4ef4e4"
 )
 
 func main() {

@@ -3,26 +3,16 @@
 
 void main()
 {
-    //While
-    int entrada = 1;
-    while (entrada != 0)
-    {
-        printf("Voce gostaria de sair do programa:\n"
-        "0 - Finalizar programa\n"
-        "1 - Continuar programando\n");
-
-        scanf("%d", &entrada);
-
-    }
-
-    //Do While
+    int entrada, verifica = 1;
     do
     {
-        printf("Voce gostaria de sair do programa:\n"
-        "0 - Finalizar programa\n"
-        "1 - Continuar programando\n");
-
+        printf("Digite um numero inteiro: \n");
         scanf("%d", &entrada);
-        
-    } while (entrada != 0);
+        if (entrada % 2 == 0)
+            printf("O nnumero e par\n");
+        else
+            printf("O numero e impar\n");
+
+    } while(verifica != -1);
+
 }
